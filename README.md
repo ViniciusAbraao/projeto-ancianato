@@ -6,4 +6,3 @@ npm install
 Iniciar o servidor:
 npm run dev
 Acessar o site:
-http://localhost:3000

@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button"
 import { Calendar, Heart, Info, Mail, MapPin, Users } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
+import transparencia from "./transparencia"
 
 export default function Home() {
   return (
@@ -59,12 +60,12 @@ export default function Home() {
         </div>
       </header>
       <main className="flex-1">
-        {/* Home Section */}
+        {/* Seção Início */}
         <section id="home" className="relative">
           <div className="absolute inset-0 bg-blue-900/80 z-10" />
           <div className="relative h-[600px]">
             <Image
-              src="/placeholder.svg?height=600&width=1200"
+              src="/images/Imagem home.png"
               alt="Hero background"
               fill
               className="object-cover"
@@ -91,7 +92,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Who We Are Section - Removed "Our Team" as requested */}
+        {/* Seção Sobre nós */}
         <section id="who-we-are" className="py-16 md:py-24 bg-white">
           <div className="container px-4 md:px-6">
             <div className="grid gap-10 lg:grid-cols-2 lg:gap-16 items-center">
@@ -111,7 +112,7 @@ export default function Home() {
                 {/* Removed "Our Team" section as requested */}
               </div>
               <div className="relative h-[400px] overflow-hidden rounded-xl">
-                <Image src="/placeholder.svg?height=400&width=600" alt="Team photo" fill className="object-cover" />
+                <Image src="/images/Imagem Sobre nos.png" alt="Team photo" fill className="object-cover" />
               </div>
             </div>
           </div>
@@ -172,7 +173,7 @@ export default function Home() {
             <div className="grid gap-10 lg:grid-cols-2 lg:gap-16 items-center">
               <div className="order-2 lg:order-1 relative h-[400px] overflow-hidden rounded-xl">
                 <Image
-                  src="/placeholder.svg?height=400&width=600"
+                  src="/images/Ajude.png"
                   alt="Volunteers helping"
                   fill
                   className="object-cover"
