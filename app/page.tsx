@@ -2,7 +2,6 @@ import { Button } from "@/components/ui/button"
 import { Calendar, Heart, Info, Mail, MapPin, Users } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
-import transparencia from "./transparencia"
 
 export default function Home() {
   return (
