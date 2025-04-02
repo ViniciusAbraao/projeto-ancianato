@@ -134,7 +134,7 @@ export default function Home() {
             <div className="">
               <iframe
               src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRCef7a6Fu1a2v7-YFy6iWoCLEzGasFW0ju4-Kqugg-w9iVWoPkuz2_L5NSHHZ0tVINWAutOjSlG7hr/pubhtml"
-                width="53%"
+                width="100%"
                 height="700"
                 className="border rounded-lg shadow mx-auto"
                 
