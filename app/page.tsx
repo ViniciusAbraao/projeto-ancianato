@@ -131,37 +131,14 @@ export default function Home() {
                 Acreditamos em ser abertos e honestos sobre nossas operações, finanças e impacto.
               </p>
             </div>
-            <div className="grid gap-8 md:grid-cols-3">
-              <div className="bg-white p-6 rounded-xl shadow-sm">
-                <Info className="h-10 w-10 text-red-600 mb-4" />
-                <h3 className="text-xl font-bold text-blue-900 mb-2">Relatórios Financeiros</h3>
-                <p className="text-gray-600 mb-4">
-                  Publicamos relatórios financeiros detalhados trimestralmente, mostrando exatamente como as doações são usadas.
-                </p>
-                <Button variant="link" className="text-blue-700 p-0">
-                  Ver relatórios →
-                </Button>
-              </div>
-              <div className="bg-white p-6 rounded-xl shadow-sm">
-                <Info className="h-10 w-10 text-red-600 mb-4" />
-                <h3 className="text-xl font-bold text-blue-900 mb-2">Métricas de Impacto</h3>
-                <p className="text-gray-600 mb-4">
-                  Medimos e compartilhamos o impacto real de nossos programas e iniciativas.
-                </p>
-                <Button variant="link" className="text-blue-700 p-0">
-                  Ver relatórios →
-                </Button>
-              </div>
-              <div className="bg-white p-6 rounded-xl shadow-sm">
-                <Info className="h-10 w-10 text-red-600 mb-4" />
-                <h3 className="text-xl font-bold text-blue-900 mb-2">Governança</h3>
-                <p className="text-gray-600 mb-4">
-                  Saiba mais sobre nossa estrutura de liderança e processos de tomada de decisão.
-                </p>
-                <Button variant="link" className="text-blue-700 p-0">
-                  Ver relatórios →
-                </Button>
-              </div>
+            <div className="">
+              <iframe
+              src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRCef7a6Fu1a2v7-YFy6iWoCLEzGasFW0ju4-Kqugg-w9iVWoPkuz2_L5NSHHZ0tVINWAutOjSlG7hr/pubhtml"
+                width="53%"
+                height="700"
+                className="border rounded-lg shadow mx-auto"
+                
+              ></iframe>
             </div>
           </div>
         </section>
