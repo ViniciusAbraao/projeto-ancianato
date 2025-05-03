@@ -25,13 +25,32 @@ export default function AdminPage() {
         e.preventDefault();
         setStatus('Enviando...');
 
-        const data = new FormData();
-        for (const key in formData) {
-            data.append(key, formData[key]);
-        }
+        // Enviar imagem para o Imgur
+        const imageData = new FormData();
+        imageData.append('image', formData.imagem);
 
         try {
-            await axios.post('/api/eventos', data);
+            // Substitua 'YOUR_CLIENT_ID' pelo seu Client-ID do Imgur
+            const response = await axios.post('https://api.imgur.com/3/upload', imageData, {
+                headers: {
+                    Authorization: 'Client-ID 3d953add1e4524f', // Substitua com seu Client-ID do Imgur
+                },
+            });
+
+            const imageUrl = response.data.data.link; // URL da imagem hospedada no Imgur
+
+            // Agora você pode enviar o resto dos dados do evento para seu servidor
+            const eventoData = {
+                titulo: formData.titulo,
+                data: formData.data,
+                local: formData.local,
+                descricao: formData.descricao,
+                imagemUrl: imageUrl, // URL da imagem enviada para o Imgur
+            };
+
+            // Enviar os dados para o backend ou outro banco de dados
+            await axios.post('/api/eventos', eventoData);
+
             setStatus('Evento enviado com sucesso!');
             setFormData({
                 titulo: '',
