@@ -9,7 +9,7 @@ interface EventCardProps {
     local: string
     titulo: string
 }
-
+//comentario
 export function EventCard({ data, descricao, imagem, local, titulo }: EventCardProps) {
     return (
         <div className="bg-white rounded-xl overflow-hidden shadow-sm">
