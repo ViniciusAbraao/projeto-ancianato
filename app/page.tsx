@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button"
-import { Calendar, Heart, Info, Mail, MapPin, Users } from "lucide-react"
+import { Calendar, Heart, Mail, MapPin, Users } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { getEventos } from "@/lib/getEvents";
