@@ -6,7 +6,6 @@ import { getEventos } from "@/lib/getEvents";
 
 export default async function Home() {
   const eventos = await getEventos();
-
   return (
     <div className="flex min-h-screen flex-col">
       <header className="sticky top-0 z-50 w-full border-b bg-white">
@@ -83,12 +82,6 @@ export default async function Home() {
                 <p className="mx-auto max-w-[700px] text-lg text-white/90 md:text-xl">
                   Junte-se a nós em nossa missão de criar mudanças positivas em nossa comunidade e além.
                 </p>
-                <div className="space-x-4">
-                  <Button className="bg-red-600 hover:bg-red-700 text-white">Ajudar</Button>
-                  <Button variant="outline" className="bg-white text-blue-700 hover:bg-blue-50">
-                    Saiba mais
-                  </Button>
-                </div>
               </div>
             </div>
           </div>
@@ -194,14 +187,15 @@ export default async function Home() {
                     </div>
                   </div>
                 </div>
-                {/* Removed the "Get Involved Now" button as requested */}
               </div>
             </div>
           </div>
         </section>
 
+        
         {/* Seção dos Eventos */}
         <section id="events" className="py-16 md:py-24 bg-blue-50">
+           <h3 className="text-lg font-bold text-blue-900 text-center">Eventos Realizados</h3>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {eventos.map((evento) => (
               <div key={evento.id} className="bg-white rounded-xl overflow-hidden shadow-sm">
