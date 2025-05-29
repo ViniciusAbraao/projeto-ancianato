@@ -5,4 +5,4 @@ Dentro da pasta do projeto:
 npm install
 Iniciar o servidor:
 npm run dev
-Acessar o site:
+Acessar o site:n

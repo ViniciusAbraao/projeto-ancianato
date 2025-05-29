@@ -10,9 +10,18 @@
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.1.2",
+    "axios": "^1.9.0",
     "class-variance-authority": "^0.7.1",
+    "cloudinary": "^2.6.0",
+    "cloudinary-core": "^2.13.1",
     "clsx": "^2.1.1",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "firebase": "^11.6.0",
+    "firebase-admin": "^13.2.0",
+    "formidable": "^3.5.4",
     "lucide-react": "^0.484.0",
+    "multer": "^1.4.5-lts.2",
     "next": "15.2.4",
     "next-themes": "^0.4.6",
     "projeto-ancianato": "file:",
@@ -32,5 +41,21 @@
     "eslint-config-next": "15.2.4",
     "tailwindcss": "^4",
     "typescript": "^5"
-  }
+  },
+  "description": "Requisitos:\r [Node.js](https://nodejs.org/) (versão 18.17 ou superior)\r npm (vem com o Node.js)\r Dentro da pasta do projeto:\r npm install\r Iniciar o servidor:\r npm run dev\r Acessar o site:n",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ViniciusAbraao/projeto-ancianato.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ViniciusAbraao/projeto-ancianato/issues"
+  },
+  "homepage": "https://github.com/ViniciusAbraao/projeto-ancianato#readme"
 }

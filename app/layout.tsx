@@ -3,7 +3,7 @@ import "@/app/globals.css"
 import { ThemeProvider } from "@/components/ui/theme-provider"
 
 export const metadata = {
-  title: "Organization Name - Making a Difference Together",
+  title: "Ancianato Antônio Frederico Ozanam",
   description: "Join us in our mission to create positive change in our community and beyond.",
 }
 

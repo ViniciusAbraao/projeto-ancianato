@@ -2,8 +2,11 @@ import { Button } from "@/components/ui/button"
 import { Calendar, Heart, Info, Mail, MapPin, Users } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
+import { getEventos } from "@/lib/getEvents";
 
-export default function Home() {
+export default async function Home() {
+  const eventos = await getEventos();
+
   return (
     <div className="flex min-h-screen flex-col">
       <header className="sticky top-0 z-50 w-full border-b bg-white">
@@ -131,37 +134,14 @@ export default function Home() {
                 Acreditamos em ser abertos e honestos sobre nossas operações, finanças e impacto.
               </p>
             </div>
-            <div className="grid gap-8 md:grid-cols-3">
-              <div className="bg-white p-6 rounded-xl shadow-sm">
-                <Info className="h-10 w-10 text-red-600 mb-4" />
-                <h3 className="text-xl font-bold text-blue-900 mb-2">Relatórios Financeiros</h3>
-                <p className="text-gray-600 mb-4">
-                  Publicamos relatórios financeiros detalhados trimestralmente, mostrando exatamente como as doações são usadas.
-                </p>
-                <Button variant="link" className="text-blue-700 p-0">
-                  Ver relatórios →
-                </Button>
-              </div>
-              <div className="bg-white p-6 rounded-xl shadow-sm">
-                <Info className="h-10 w-10 text-red-600 mb-4" />
-                <h3 className="text-xl font-bold text-blue-900 mb-2">Métricas de Impacto</h3>
-                <p className="text-gray-600 mb-4">
-                  Medimos e compartilhamos o impacto real de nossos programas e iniciativas.
-                </p>
-                <Button variant="link" className="text-blue-700 p-0">
-                  Ver relatórios →
-                </Button>
-              </div>
-              <div className="bg-white p-6 rounded-xl shadow-sm">
-                <Info className="h-10 w-10 text-red-600 mb-4" />
-                <h3 className="text-xl font-bold text-blue-900 mb-2">Governança</h3>
-                <p className="text-gray-600 mb-4">
-                  Saiba mais sobre nossa estrutura de liderança e processos de tomada de decisão.
-                </p>
-                <Button variant="link" className="text-blue-700 p-0">
-                  Ver relatórios →
-                </Button>
-              </div>
+            <div className="">
+              <iframe
+                src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRCef7a6Fu1a2v7-YFy6iWoCLEzGasFW0ju4-Kqugg-w9iVWoPkuz2_L5NSHHZ0tVINWAutOjSlG7hr/pubhtml"
+                width="100%"
+                height="700"
+                className="border rounded-lg shadow mx-auto"
+
+              ></iframe>
             </div>
           </div>
         </section>
@@ -222,22 +202,13 @@ export default function Home() {
 
         {/* Seção dos Eventos */}
         <section id="events" className="py-16 md:py-24 bg-blue-50">
-          <div className="container px-4 md:px-6">
-            <div className="text-center mb-10">
-              <div className="inline-block rounded-lg bg-blue-100 px-3 py-1 text-sm text-blue-700 mb-4">Junte-se a nós</div>
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-blue-900">
-                Eventos
-              </h2>
-              <p className="mx-auto mt-4 max-w-[700px] text-gray-600 md:text-lg">
-                Descubra os próximos eventos e atividades onde você pode se envolver e fazer a diferença.
-              </p>
-            </div>
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              <div className="bg-white rounded-xl overflow-hidden shadow-sm">
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {eventos.map((evento) => (
+              <div key={evento.id} className="bg-white rounded-xl overflow-hidden shadow-sm">
                 <div className="relative h-48">
                   <Image
-                    src="/placeholder.svg?height=200&width=400"
-                    alt="Community cleanup event"
+                    src={evento.imagem}
+                    alt={evento.titulo}
                     fill
                     className="object-cover"
                   />
@@ -245,68 +216,17 @@ export default function Home() {
                 <div className="p-6">
                   <div className="flex items-center gap-2 mb-4 text-sm text-gray-500">
                     <Calendar className="h-4 w-4" />
-                    <span>Junho 15, 2025</span>
+                    <span>{evento.data}</span>
                     <MapPin className="h-4 w-4 ml-2" />
-                    <span>Três Corações</span>
+                    <span>{evento.local}</span>
                   </div>
-                  <h3 className="text-xl font-bold text-blue-900 mb-2">Dia de Limpeza Comunitária</h3>
-                  <p className="text-gray-600">
-                    Junte-se a nós para um dia de limpeza de parques e ruas locais para criar um ambiente mais limpo.
-                  </p>
-                  {/* Removed the "Register Now" button as requested */}
+                  <h3 className="text-xl font-bold text-blue-900 mb-2">{evento.titulo}</h3>
+                  <p className="text-gray-600">{evento.descricao}</p>
                 </div>
               </div>
-              <div className="bg-white rounded-xl overflow-hidden shadow-sm">
-                <div className="relative h-48">
-                  <Image
-                    src="/placeholder.svg?height=200&width=400"
-                    alt="Fundraising gala"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="p-6">
-                  <div className="flex items-center gap-2 mb-4 text-sm text-gray-500">
-                    <Calendar className="h-4 w-4" />
-                    <span>Julho 10, 2025</span>
-                    <MapPin className="h-4 w-4 ml-2" />
-                    <span>Três Corações</span>
-                  </div>
-                  <h3 className="text-xl font-bold text-blue-900 mb-2">Gala Anual de Arrecadação de Fundos</h3>
-                  <p className="text-gray-600">
-                    Uma noite elegante de jantar, entretenimento e arrecadação de fundos para nossas principais iniciativas.
-                  </p>
-                  {/* Removed the "Get Tickets" button as requested */}
-                </div>
-              </div>
-              <div className="bg-white rounded-xl overflow-hidden shadow-sm">
-                <div className="relative h-48">
-                  <Image
-                    src="/placeholder.svg?height=200&width=400"
-                    alt="Workshop event"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="p-6">
-                  <div className="flex items-center gap-2 mb-4 text-sm text-gray-500">
-                    <Calendar className="h-4 w-4" />
-                    <span>Agosto 5, 2025</span>
-                    <MapPin className="h-4 w-4 ml-2" />
-                    <span>Três Corações</span>
-                  </div>
-                  <h3 className="text-xl font-bold text-blue-900 mb-2">Série de workshops educacionais</h3>
-                  <p className="text-gray-600">
-                    Aprenda habilidades e conhecimentos práticos para ajudar a fazer a diferença na sua comunidade.
-                  </p>
-                  {/* Removed the "Sign Up" button as requested */}
-                </div>
-              </div>
-            </div>
-            <div className="text-center mt-10">
-              <Button className="bg-red-600 hover:bg-red-700 text-white">Visualizar todos os Eventos</Button>
-            </div>
+            ))}
           </div>
+
         </section>
 
         {/* Contact Section - Removed form as requested */}
@@ -377,7 +297,7 @@ export default function Home() {
               <ul className="flex flex-wrap gap-4 justify-center">
                 <li>
                   <Link href="#home" className="text-sm hover:text-white">
-                   Início
+                    Início
                   </Link>
                 </li>
                 <li>
