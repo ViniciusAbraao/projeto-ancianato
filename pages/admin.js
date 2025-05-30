@@ -5,6 +5,9 @@ import Link from 'next/link'; // Import Next.js Link component for navigation
 import 'bootstrap/dist/css/bootstrap.min.css'; // **Ensure bootstrap is installed in node_modules**
 
 export default function AdminPage() {
+
+    console.log("Firebase config:", firebase.app().options);
+
     const [formData, setFormData] = useState({
         titulo: '',
         data: '',
