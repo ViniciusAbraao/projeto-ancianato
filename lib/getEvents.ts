@@ -1,13 +1,14 @@
 // lib/getEvents.ts
-import { collection, getDocs } from "firebase/firestore";
-import { db } from "./firebaseConfig";
-import { Evento } from "./types"; // ajuste o caminho conforme a estrutura do seu projeto
+import { Evento } from "./types";
 
 export async function getEventos(): Promise<Evento[]> {
-    const eventosRef = collection(db, "eventos");
-    const snapshot = await getDocs(eventosRef);
-    const data = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() } as Evento));
-    console.log("Eventos carregados:", data); // <--- Debug
-    return data;
-}
+  const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/eventos`, {
+    cache: 'no-store', // Para evitar cache na produção
+  });
 
+  if (!res.ok) {
+    throw new Error("Erro ao buscar eventos da API");
+  }
+
+  return res.json();
+}

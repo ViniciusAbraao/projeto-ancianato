@@ -5,8 +5,9 @@ import Link from "next/link"
 import { getEventos } from "@/lib/getEvents";
 
 export default async function Home() {
+
   const eventos = await getEventos();
-  
+
   return (
     <div className="flex min-h-screen flex-col">
       <header className="sticky top-0 z-50 w-full border-b bg-white">

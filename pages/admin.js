@@ -6,8 +6,6 @@ import 'bootstrap/dist/css/bootstrap.min.css'; // **Ensure bootstrap is installe
 
 export default function AdminPage() {
 
-    console.log("Firebase config:", firebase.app().options);
-
     const [formData, setFormData] = useState({
         titulo: '',
         data: '',
