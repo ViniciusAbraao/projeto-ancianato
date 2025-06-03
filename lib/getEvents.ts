@@ -1,12 +1,8 @@
 import { Evento } from "./types";
 
 export async function getEventos(): Promise<Evento[]> {
-  const baseUrl =
-    process.env.VERCEL_URL
-      ? `https://${process.env.VERCEL_URL}`
-      : "http://localhost:3000";
 
-  const res = await fetch(`${baseUrl}/api/eventos`, {
+  const res = await fetch(`https://projeto-ancianato.vercel.app/api/eventos`, {
     cache: "no-store",
   });
 
