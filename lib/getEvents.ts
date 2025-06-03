@@ -1,9 +1,12 @@
 // lib/getEvents.ts
-import { Evento } from "./types";
+export async function getEventos() {
+  const baseUrl =
+    process.env.VERCEL_URL
+      ? `https://${process.env.VERCEL_URL}`
+      : "http://localhost:3000";
 
-export async function getEventos(): Promise<Evento[]> {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/eventos`, {
-    cache: 'no-store', // Para evitar cache na produção
+  const res = await fetch(`${baseUrl}/api/eventos`, {
+    cache: "no-store",
   });
 
   if (!res.ok) {
