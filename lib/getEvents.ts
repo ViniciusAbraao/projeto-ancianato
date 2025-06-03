@@ -1,5 +1,6 @@
-// lib/getEvents.ts
-export async function getEventos() {
+import { Evento } from "./types";
+
+export async function getEventos(): Promise<Evento[]> {
   const baseUrl =
     process.env.VERCEL_URL
       ? `https://${process.env.VERCEL_URL}`

@@ -3,10 +3,11 @@ import { Calendar, Heart, Mail, MapPin, Users } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { getEventos } from "@/lib/getEvents";
+import { Evento } from "@/lib/types";
 
 export default async function Home() {
 
-  const eventos = await getEventos();
+  const eventos: Evento[] = await getEventos();
 
   return (
     <div className="flex min-h-screen flex-col">
