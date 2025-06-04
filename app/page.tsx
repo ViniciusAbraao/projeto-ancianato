@@ -4,6 +4,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { getEventos } from "@/lib/getEvents";
 import { Evento } from "@/lib/types";
+import './globals.css'
 
 export default async function Home() {
 
@@ -287,7 +288,7 @@ export default async function Home() {
             <div className="flex items-center gap-4">
               <Image src="/images/Logo.png" alt="Logo Org" width={150} height={150} className="mx-2" />
               <div className="text-sm">
-                <p>&copy; {new Date().getFullYear()} OrganizationName. Todos os direitos reservados.</p>
+                <p>&copy; {new Date().getFullYear()} SSVP. Todos os direitos reservados.</p>
               </div>
             </div>
             <div>

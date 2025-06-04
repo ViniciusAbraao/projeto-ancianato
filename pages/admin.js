@@ -3,9 +3,26 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Link from 'next/link'; // Import Next.js Link component for navigation
 import 'bootstrap/dist/css/bootstrap.min.css'; // **Ensure bootstrap is installed in node_modules**
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { initializeApp } from "firebase/app";
+
+
+const firebaseConfig = {
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
+};
+
+const app = initializeApp(firebaseConfig);
+
+
 
 export default function AdminPage() {
 
+   const [authChecked, setAuthChecked] = useState(false);
     const [formData, setFormData] = useState({
         titulo: '',
         data: '',
@@ -13,12 +30,23 @@ export default function AdminPage() {
         descricao: '',
         imagem: null,
     });
-
-    // type: 'success', 'danger', 'info', 'warning' (Bootstrap alert types)
     const [status, setStatus] = useState({ text: null, type: null });
     const [eventos, setEventos] = useState([]);
     const [loadingEventos, setLoadingEventos] = useState(true);
 
+    useEffect(() => {
+        const auth = getAuth(app);
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
+            if (!user) {
+                window.location.href = "/login";
+            } else {
+                setAuthChecked(true);
+            }
+        });
+        return () => unsubscribe();
+    }, []);
+
+    
     const fetchEventos = async () => {
         setLoadingEventos(true);
         try {
@@ -36,6 +64,18 @@ export default function AdminPage() {
     useEffect(() => {
         fetchEventos();
     }, []);
+
+
+    if (!authChecked) {
+        // Mostra um loading ou nada enquanto verifica o login
+        return (
+            <div className="d-flex justify-content-center align-items-center" style={{ minHeight: "100vh" }}>
+                <div className="spinner-border text-primary" role="status">
+                </div>
+            </div>
+        );
+    }
+
 
     const handleChange = (e) => {
         const { name, value, files } = e.target;

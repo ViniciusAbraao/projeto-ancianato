@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@radix-ui/react-label": "^2.1.7",
     "@radix-ui/react-slot": "^1.1.2",
     "axios": "^1.9.0",
     "bootstrap": "^5.3.6",
@@ -37,9 +38,11 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "autoprefixer": "^10.4.21",
     "eslint": "^9",
     "eslint-config-next": "15.2.4",
-    "tailwindcss": "^4",
+    "postcss": "^8.5.4",
+    "tailwindcss": "^4.1.8",
     "typescript": "^5"
   },
   "description": "Requisitos:\r [Node.js](https://nodejs.org/) (versão 18.17 ou superior)\r npm (vem com o Node.js)\r Dentro da pasta do projeto:\r npm install\r Iniciar o servidor:\r npm run dev\r Acessar o site:n",
